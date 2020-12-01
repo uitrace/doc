@@ -23,12 +23,10 @@ app.exe run_lyra -s ${deviceId} -r ${项目路径} -w 0 -b 0
     -s  参数为设备Id，可从adb devices查看，不添加该参数默认使用当前机器第一个设备
 
     -r  参数为项目文件夹路径
-
 > Linux
 
     先使用UI版本导出脚本功能导出可在Linux上执行的脚本
     请自行在你的Linux主机上安装python3.6，然后再安装以下依赖库。你可以通过一些环境管理方案来管理你的python环境，例如virtualenv
-
 ``` 
     环境配置：  python3.6
     依 赖 库：  certifi==2020.4.5.1
