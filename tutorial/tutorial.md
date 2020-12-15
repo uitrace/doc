@@ -39,7 +39,9 @@ click_text('同意并使用')
 ``` python
 # 常用查找元素示例
 
-# 点击图片 
+# 查找图片 
+if exists(locator='****.jpg', timeOut=20, by=DriverType.CV):
+    print("exists img")
 result_pos = find(locator='****.jpg', xOffset=0, yOffset=0, by=DriverType.CV, timeOut=20)
 if result_pos is not None:
     print(result_pos)
@@ -47,10 +49,14 @@ result, pos = ai_find('****.jpg', pos=None, offset=[0, 0], time_out=0, similarit
 if result:
     print(pos)
 # 查找控件
+if exists(locator='/text="同意并使用" && type="android.widget.TextView"', timeOut=20, by=DriverType.UIAUTOMATOR):
+    print("exists control")
 result_pos = find(locator='/text="同意并使用" && type="android.widget.TextView"', xOffset=0, yOffset=0, by=DriverType.UIAUTOMATOR, timeOut=20)
 if result_pos is not None:
     print(result_pos)
 # 查找文字
+if exists(locator='同意并使用', timeOut=20, by=DriverType.OCR):
+    print("exists text")
 result_pos = find(locator='同意并使用', xOffset=0, yOffset=0, by=DriverType.OCR, timeOut=20)
 if result_pos is not None:
     print(result_pos)
