@@ -9,13 +9,14 @@
 工程：[script.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/script.uitrace.zip)
 
 ## 常用API
-#### 点击元素
+?> UITrace提供了约50个API，常用的有点击、滑动、查找、等待、登录等等，以下为简要说明，具体信息及全部API详见工具中*帮助-API*
+#### 点击
 + <a target="_blank">click(locator, xOffset=0, yOffset=0, by=0, **kwargs)</a>
 + <a target="_blank">doubleClick(locator, xOffset=0, yOffset=0, by=0, **kwargs)</a>
 + <a target="_blank">longClick(locator, longClickTime=1, xOffset=0, yOffset=0, by=0, **kwargs)</a>
-+ <a target="_blank">click_text(text_str, pic=None, xOffset=0, yOffset=0, **kwargs)</a>
-+ <a target="_blank">clickUiObject(locator)</a>
-+ <a target="_blank">clickVanish(locator, timeOut=0, xOffset=0, yOffset=0, by=0, raiseException=0, **kwargs)</a>
++ <a target="_blank">*click_text(text_str, pic=None, xOffset=0, yOffset=0, **kwargs)*</a>
++ <a target="_blank">*clickUiObject(locator)*</a>
++ <a target="_blank">*clickVanish(locator, timeOut=0, xOffset=0, yOffset=0, by=0, raiseException=0, **kwargs)*</a>
 
 ``` python
 # 常用点击示例
@@ -30,48 +31,7 @@ click(locator='同意并使用', xOffset=0, yOffset=0, by=DriverType.OCR, timeOu
 click_text('同意并使用')
 ```
 
-#### 查找元素
-+ <a target="_blank">find(locator, by=0, **kwargs)</a>
-+ <a target="_blank">find_text(text_str, pic=None, **kwargs)</a>
-+ <a target="_blank">ai_find(img_name, pos=None, offset=[0, 0], time_out=0, similarity=0.7, ratio_lv=21, pos_weight=0.05)</a>
-+ <a target="_blank">super_find(uia = "", img_name = "", pos = None, uia_timeout = 20, img_timeout = 10, similarity = 0.7, ratio_lv = 21, pos_weight = 0.05)</a>
-
-``` python
-# 常用查找元素示例
-
-# 查找图片 
-if exists(locator='****.jpg', timeOut=20, by=DriverType.CV):
-    print("exists img")
-result_pos = find(locator='****.jpg', xOffset=0, yOffset=0, by=DriverType.CV, timeOut=20)
-if result_pos is not None:
-    print(result_pos)
-result, pos = ai_find('****.jpg', pos=None, offset=[0, 0], time_out=0, similarity=0.7, ratio_lv=21, pos_weight=0.05)
-if result:
-    print(pos)
-# 查找控件
-if exists(locator='/text="同意并使用" && type="android.widget.TextView"', timeOut=20, by=DriverType.UIAUTOMATOR):
-    print("exists control")
-result_pos = find(locator='/text="同意并使用" && type="android.widget.TextView"', xOffset=0, yOffset=0, by=DriverType.UIAUTOMATOR, timeOut=20)
-if result_pos is not None:
-    print(result_pos)
-# 查找文字
-if exists(locator='同意并使用', timeOut=20, by=DriverType.OCR):
-    print("exists text")
-result_pos = find(locator='同意并使用', xOffset=0, yOffset=0, by=DriverType.OCR, timeOut=20)
-if result_pos is not None:
-    print(result_pos)
-result_pos = find_text('同意并使用')
-if result_pos is not None:
-    print(result_pos)
-
-# 综合查找(优先基于控件定位，找不到则基于图像及坐标（坐标不为空时）或仅基于图像（坐标为空时）定位)
-result, result_type = super_find(uia = '/text="同意并使用" && type="android.widget.TextView"', img_name = '****.jpg', pos = (0.1, 0.5), uia_timeout = 20, img_timeout = 10, similarity = 0.7, ratio_lv = 21, pos_weight = 0.05)
-if result is not None:
-    print(result)
-    print(result_type)
-```
-
-#### 滑动元素
+#### 滑动
 + <a target="_blank">slide(locatorFrom, locatorTo, by=0, **kwargs)</a>
 + <a target="_blank">slideOffset(locator, xOffset=0, yOffset=0, by=0, **kwargs)</a>
 + <a target="_blank">swipe(locator, referencePicture='', **kwargs)</a>
@@ -89,12 +49,57 @@ slideOffset('/text="同意并使用" && type="android.widget.TextView"', xOffset
 slideOffset('同意并使用', xOffset=-0.005, yOffset=0.159, by=DriverType.OCR)
 ```
 
-#### 等待元素
-+ <a target="_blank">wait(locator, timeOut=0, by=0, **kwargs)</a>
-+ <a target="_blank">waitVanish(locator, timeOut=0, by=0, **kwargs)</a>
+#### 查找
+?>常用于复合定位元素，以提高脚本稳定性：在操作时可以先通过稳定方式（控件、图像、OCR、坐标）进行查找，如果查找失败再尝试通过其他方式查找或操作。
++ <a target="_blank">find(locator, by=0, **kwargs)</a>
++ <a target="_blank">super_find(uia = "", img_name = "", pos = None, uia_timeout = 20, img_timeout = 10, similarity = 0.7, ratio_lv = 21, pos_weight = 0.05)</a>
++ <a target="_blank">*find_text(text_str, pic=None, **kwargs)*</a>
++ <a target="_blank">*ai_find(img_name, pos=None, offset=[0, 0], time_out=0, similarity=0.7, ratio_lv=21, pos_weight=0.05)*</a>
+
+``` python
+# 常用查找元素示例
+
+# 点击图片 
+result_pos = find(locator='****.jpg', xOffset=0, yOffset=0, by=DriverType.CV, timeOut=20)
+if result_pos is not None:
+    print(result_pos)
+result, pos = ai_find('****.jpg', pos=None, offset=[0, 0], time_out=0, similarity=0.7, ratio_lv=21, pos_weight=0.05)
+if result:
+    print(pos)
+# 查找控件
+result_pos = find(locator='/text="同意并使用" && type="android.widget.TextView"', xOffset=0, yOffset=0, by=DriverType.UIAUTOMATOR, timeOut=20)
+if result_pos is not None:
+    print(result_pos)
+# 查找文字
+result_pos = find(locator='同意并使用', xOffset=0, yOffset=0, by=DriverType.OCR, timeOut=20)
+if result_pos is not None:
+    print(result_pos)
+result_pos = find_text('同意并使用')
+if result_pos is not None:
+    print(result_pos)
+
+# 综合查找(优先基于控件定位，找不到则基于图像及坐标（坐标不为空时）或仅基于图像（坐标为空时）定位)
+result, result_type = super_find(uia = '/text="同意并使用" && type="android.widget.TextView"', img_name = '****.jpg', pos = (0.1, 0.5), uia_timeout = 20, img_timeout = 10, similarity = 0.7, ratio_lv = 21, pos_weight = 0.05)
+if result is not None:
+    print(result)
+    print(result_type)
+```
+
+#### 等待
+?>常用于处理过程中的偶现场景：使用等待相关函数，在指定时间如果出现则执行设定操作。
++ <a target="_blank">exists(locator, timeOut=__DEFAULT_TIMEOUT, by=DriverType.CV, **kwargs)</a>
++ <a target="_blank">*wait(locator, timeOut=0, by=0, **kwargs)*</a>
++ <a target="_blank">*waitVanish(locator, timeOut=0, by=0, **kwargs)*</a>
 
 ``` python
 # 等待元素示例
+
+# 在指定的时间等待图像出现 
+exists('****.jpg', timeOut=20, by=DriverType.CV)
+# 在指定的时间等待控件出现 
+exists('/text="同意并使用" && type="android.widget.TextView"', timeOut=20, by=DriverType.UIAUTOMATOR)
+# 在指定的时间等待文字出现 
+exists('同意并使用', timeOut=20, by=DriverType.OCR)
 
 # 在指定的时间等待图像出现 
 wait('****.jpg', timeOut=20, by=DriverType.CV)
@@ -105,16 +110,11 @@ wait('同意并使用', timeOut=20, by=DriverType.OCR)
 
 # 在指定的时间等待元素消失 
 waitVanish('****.jpg', timeOut=20, by=DriverType.CV)
-# 在指定的时间等待控件出现 
+# 在指定的时间等待控件消失 
 waitVanish('/text="同意并使用" && type="android.widget.TextView"', timeOut=20, by=DriverType.UIAUTOMATOR)
-# 在指定的时间等待文字出现 
+# 在指定的时间等待文字消失 
 waitVanish('同意并使用', timeOut=20, by=DriverType.OCR)
 ```
-
-
-#### 智能Monkey
-+ <a target="_blank">ai_monkey(pkg=None, explore_type=0, timeout=-1, pre_exec=None, web_check=True, keyboard_check=True, restart_interval=900, other_data=[], qq_data=[], wechat_data=[])</a>
-+ <a target="_blank">stop_monkey(ai_key)</a>
 
 #### 账号相关
 + <a target="_blank">qqLogin(acc='', pwd='', **kwargs)</a>
@@ -123,28 +123,21 @@ waitVanish('同意并使用', timeOut=20, by=DriverType.OCR)
 + <a target="_blank">playWithWeChatFriends(locator=None, acc='', pwd='', timeOut=180, **kwargs)</a>
 
 #### 设备相关
-+ getDevice()
-+ getImage(subRect=None, quality=None)
-+ getText(locator, referencePicture='', by=1, **kwargs)
-+ getUiObjectTree()
-+ ratio_transfer(pt)
-+ win_transfer(pt)(pt)
-+ screencap(subRect=None, quality=None)
-+ script_dir()
-+ setDevice(dev)
-+ shell(cmd)
-+ shell_noshow(cmd)
++ <a target="_blank">getDevice()</a>
++ <a target="_blank">getImage(subRect=None, quality=None)</a>
++ <a target="_blank">getText(locator, referencePicture='', by=1, **kwargs)</a>
++ <a target="_blank">getUiObjectTree()</a>
++ <a target="_blank">ratio_transfer(pt)</a>
++ <a target="_blank">win_transfer(pt)(pt)</a>
++ <a target="_blank">screencap(subRect=None, quality=None)</a>
++ <a target="_blank">script_dir()</a>
++ <a target="_blank">setDevice(dev)</a>
++ <a target="_blank">shell(cmd)</a>
++ <a target="_blank">shell_noshow(cmd)</a>
 
-``` python
-# 设备相关示例
-
-# 截取手机指定区域图片并保存
-pt1 = win_transfer((0.03, 0.097)) # pt1为左上角坐标
-pt2 = win_transfer((0.966, 0.136)) # pt2为右下角坐标
-screencap(subRect=(pt1[0], pt1[1], pt2[0], pt2[1]))
-```
-
-
+#### 智能Monkey
++ <a target="_blank">ai_monkey(pkg=None, explore_type=0, timeout=-1, pre_exec=None, web_check=True, keyboard_check=True, restart_interval=900, other_data=[], qq_data=[], wechat_data=[])</a>
++ <a target="_blank">stop_monkey(ai_key)</a>
 
 ## 平台使用
 #### 终端云测
