@@ -1,3 +1,4 @@
 - 
     - [快速开始](./quick_start/quick_start.md)
+    - [详细教程](./tutorial/tutorial.md)
     - [常见问题](./faq/faq.md)
