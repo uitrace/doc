@@ -135,6 +135,17 @@ waitVanish('同意并使用', timeOut=20, by=DriverType.OCR)
 + shell(cmd)
 + shell_noshow(cmd)
 
+``` python
+# 设备相关示例
+
+# 截取手机指定区域图片并保存
+pt1 = win_transfer((0.03, 0.097)) # pt1为左上角坐标
+pt2 = win_transfer((0.966, 0.136)) # pt2为右下角坐标
+screencap(subRect=(pt1[0], pt1[1], pt2[0], pt2[1]))
+```
+
+
+
 ## 平台使用
 #### 终端云测
 请使用工具中导出-终端云测，直接导出脚本并上传到平台使用。  
