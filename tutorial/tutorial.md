@@ -6,7 +6,7 @@
 ## 代码模式
 #### 案例下载
 项目：[12306](https://www.12306.cn/index/)  
-工程（审核中）：[script_12306.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/script_12306.uitrace.zip)  
+工程：[script_12306.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/script_12306.uitrace.zip)  
 
 项目：[榫接卯和](https://zhuimeng.qq.com/webplat/info/news_version3/36752/36753/36754/36777/36892/m21258/201809/760840.shtml)，请先下载安装，并提前登陆好微信  
 工程（审核中）：[script.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/script.uitrace.zip)
