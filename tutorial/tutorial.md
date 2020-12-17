@@ -1,15 +1,15 @@
 ## 场景模式
 #### 案例下载
 项目：[先游](https://gamer.qq.com/)，请先下载安装  
-工程（审核中）：[scene.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/scene.uitrace.zip)
+工程：[scene.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/scene.uitrace.zip)
 
 ## 代码模式
 #### 案例下载
-项目：[12306](https://www.12306.cn/index/)  
+项目（推荐）：[12306](https://www.12306.cn/index/)  
 工程：[script_12306.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/script_12306.uitrace.zip)  
 
 项目：[榫接卯和](https://zhuimeng.qq.com/webplat/info/news_version3/36752/36753/36754/36777/36892/m21258/201809/760840.shtml)，请先下载安装，并提前登陆好微信  
-工程（审核中）：[script.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/script.uitrace.zip)
+工程：[script.uitrace.zip](https://raw.githubusercontent.com/uitrace/doc/gh-pages/tutorial/script.uitrace.zip)
 
 ## 常用API
 ?> UITrace提供了约50个API，常用的有点击、滑动、查找、等待、登录等等，以下为简要说明，具体信息及全部API详见工具中*帮助-API*
