@@ -142,10 +142,16 @@ waitVanish('同意并使用', timeOut=20, by=DriverType.OCR)
 + <a target="_blank">ai_monkey(pkg=None, explore_type=0, timeout=-1, pre_exec=None, web_check=True, keyboard_check=True, restart_interval=900, other_data=[], qq_data=[], wechat_data=[])</a>
 + <a target="_blank">stop_monkey(ai_key)</a>
 
+## 控件
+工具支持uiautomator控件，打开*控件*，鼠标移至*设备窗*，可以获取对应控件。  
+鼠标在设备上操作后会自动录制，包括点击、长按、滑动等操作，其中控件信息会自动筛选具有识别度的属性。操作后控件会自动刷新（如在手机上直接操作控件不会自动刷新），如需要手动刷新请点击关闭按钮旁的刷新按钮。  
+![ctrl_refresh](./ctrl_refresh.png ':size=383x165')  
+如果不需要录制，仅查看，请同时按住*Shift+鼠标左键*锁定控件，当鼠标移出*设备窗*再移回时解除锁定。
+
 ## 平台使用
 #### 终端云测
 请使用工具中导出-终端云测，直接导出脚本并上传到平台使用。  
-![logo](./package.jpg ':size=122x175')   
+![package](./package.jpg ':size=122x175')   
 + 功能测试  
 强烈建议使用**代码模式**开发脚本：由于终端云测功能测试需要以pytest、unittest形式解析并执行用例，目前UITrace仅代码模式支持在工程内以pytest、unittest形式编写脚本。  
 编写示例：
