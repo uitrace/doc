@@ -12,7 +12,7 @@
 ## 场景模式
 ### 1.连接手机
 1. USB线连接安卓手机，打开USB调试：*设置-开发者选项-USB调试*，参考[官方文档](https://developer.android.com/studio/debug/dev-options.html#debugging)；  
-2. 工具点击 *连接设备*，建议使用默认 *WeTest* 连接方式，点击 *连接*。
+2. 工具点击 *连接设备*，建议使用默认 *WeTest Native* 连接方式，点击 *连接*。
 
 ### 2.创建工程
 1. 运行 *WeTestUITrace.exe* 启动工具，点击 *场景模式*。
@@ -42,7 +42,7 @@
 ## 代码模式
 ### 1.连接手机
 1. USB线连接安卓手机，打开USB调试：*设置-开发者选项-USB调试*，参考[官方文档](https://developer.android.com/studio/debug/dev-options.html#debugging)；  
-2. 工具点击 *连接设备*，建议使用默认 *WeTest* 连接方式，点击 *连接*。
+2. 工具点击 *连接设备*，建议使用默认 *WeTest Native* 连接方式，点击 *连接*。
 
 ### 2.创建工程
 1. 运行 *WeTestUITrace.exe* 启动工具，点击 *代码模式*。  
