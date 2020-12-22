@@ -13,11 +13,11 @@
     从工具菜单栏 查看-> 工具配置 进入 config目录，上层目录为uitraverse，该目录下有app.exe。在该目录下执行以下命令
 ``` powershell
 # 场景模式
-app.exe run_probe -s ${deviceId} -r ${项目路径} -w 0 -b 0
+app.exe run_probe -s ${deviceId} -r ${项目路径}
 ``` 
 ``` powershell
 # 脚本模式
-app.exe run_lyra -s ${deviceId} -r ${项目路径} -w 0 -b 0
+app.exe run_lyra -s ${deviceId} -r ${项目路径}
 ```
 
     -s  参数为设备Id，可从adb devices查看，不添加该参数默认使用当前机器第一个设备  
