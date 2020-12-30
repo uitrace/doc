@@ -4,7 +4,28 @@
 请在手机“设置”-“显示”-“屏幕分辨率”中调为“WQHD”
 
 + MIUI 10+等部分手机无法连接  
-请选择WeTest Java连接方式，分辨率设置为较低的数值，如720、640（分辨率较高会导致画面卡顿设置连接失败）。
+请选择WeTest Java连接方式，分辨率设置为较低的数值，如720、640（分辨率较高会导致画面卡顿设置连接失败）
+
+## 常见错误
++ （查看->工具日志）cloudscreen run over, return value:255  
+请选择WeTest Java连接方式，分辨率设置为较低的数值，如720、640（分辨率较高会导致画面卡顿设置连接失败）  
+
++ （查看->工具日志）Failed to load dynlib/dll '*.dll'. Most probably this dynlib/dll was not found when the application was frozen.  
+打开关于->环境检测，查看各项是否已安装  
+尝试以管理员权限运行（部分电脑普通用户权限较低，无法访问所需资源）  
+
++ （运行输出）设备默认屏幕分辨率被修改，请复查  
+部分手机不是默认分辨率，使用adb shell wm size查看 
+输出中的Physical size表示设备默认分辨率   
+如果输出Override size则表示默认分辨率被修改  
+可用adb shell wm size 1440x2960重置（1440x2960为Physical size）
+
++ 脚本中使用inputChineseText输入中文时无效或出现乱码  
+检查WeTest输入法是否安装并启用  
+Wetest输入法路径为程序根目录下：/resources/app/uitraverse/etcv/android/driver/libs/ime/WeTestIME.apk
+
++ 使用ai_monkey后导航栏被隐藏  
+使用 adb shell settings put global policy_control null 可恢复
 
 ## 执行
 + 如何用命令行运行脚本
@@ -63,11 +84,11 @@ PCV==1.0
 ```
 ``` bash
 # 场景模式
-python36 runner/run_probe.pyc -s ${deviceId} -r ./script -w 0 -b 0
+python36 runner/run_probe.pyc -s ${deviceId} -r ./script
 ``` 
 ``` bash
 # 脚本模式
-python36 runner/run_lyra.pyc -s ${deviceId} -r ${项目路径} -w 0 -b 0
+python36 runner/run_lyra.pyc -s ${deviceId} -r ${项目路径}
 ``` 
 
     -s 参数为设备Id，可从adb devices查看，不添加该参数默认使用当前机器第一个设备  
