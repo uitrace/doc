@@ -35,7 +35,7 @@ Wetest输入法路径为程序根目录下：/resources/app/uitraverse/etcv/andr
 执行 adb shell settings put secure enabled_accessibility_services 0 
 
 + 执行adb命令出现java.lang.SecurityException: Permission denial  
-方法一：在开发者选项里，打开“USB调试（安全设置）”选项，允许USB调试修改权限或模拟点击
+方法一：在开发者选项里，打开“USB调试（安全设置）”选项，允许USB调试修改权限或模拟点击  
 方法二：在开发者选项里，打开“禁止权限监控”选项。
 
 ## 执行
